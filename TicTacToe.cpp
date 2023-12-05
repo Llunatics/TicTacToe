@@ -10,8 +10,8 @@ char papan[25] =    {'1','2','3','4','5',
                     'L','M','N','O','P'};
 char player = 'X';
 
-void ulangPapan() {
-    for (int i = 0; i < 25; ++i) {
+void ulangPapan(){
+    for(int i = 0; i < 25; ++i){
         papan[i] = '1' + i;
     }
 }
@@ -23,7 +23,7 @@ int tingkatPermainan(){
     cout << "Silahkan pilih tingkatan permainan(1/2/3) : "; 
     cin >> tingkat;
 
-    if (tingkat == 1 || tingkat == 2 || tingkat == 3) {
+    if (tingkat == 1 || tingkat == 2 || tingkat == 3){
         return tingkat;
     }
     else {
@@ -36,7 +36,7 @@ void cetakPapan(int tingkat){
     system("cls");
     if(tingkat==1){
         /*cout << "-------------" << endl;
-        for (int i = 0; i < 9; i += 3) {
+        for(int i = 0; i < 9; i += 3){
             cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " |" << endl;
             cout << "-------------" << endl;
         }*/
@@ -57,7 +57,7 @@ void cetakPapan(int tingkat){
         }
     } else if(tingkat==2){
         /*cout << "-----------------" << endl;
-        for (int i = 0; i < 16; i += 4) {
+        for(int i = 0; i < 16; i += 4){
             cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " | " << papan[i + 3] << " |" << endl;
             cout << "-----------------" << endl;
         }*/
@@ -78,7 +78,7 @@ void cetakPapan(int tingkat){
         }
     } else if(tingkat==3){
         /*cout << "---------------------" << endl;
-        for (int i = 0; i < 25; i += 5) {
+        for(int i = 0; i < 25; i += 5){
             cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " | " << papan[i + 3] << " | " << papan[i + 4] << " |" << endl;
             cout << "---------------------" << endl;
         }*/
@@ -197,12 +197,12 @@ char menang(int tingkat){
             return '/';
         } */
         char p = '/';
-        for (int i = 0; i < 9; i += 3) {
+        for(int i = 0; i < 9; i += 3){
             // Cek baris
             if (papan[i] == papan[i + 1] && papan[i + 1] == papan[i + 2])
                 return papan[i];
         }
-        for (int i = 0; i < 3; ++i) {
+        for(int i = 0; i < 3; ++i){
             // Cek kolom
             if (papan[i] == papan[i + 3] && papan[i + 3] == papan[i + 6])
                 return papan[i];
@@ -259,12 +259,12 @@ char menang(int tingkat){
             return '/';
         } */
         char p = '/';
-        for (int i = 0; i < 16; i += 4) {
+        for(int i = 0; i < 16; i += 4){
             // Cek baris
             if (papan[i] == papan[i + 1] && papan[i + 1] == papan[i + 2] && papan[i + 2] == papan[i + 3])
                 return papan[i];
         }
-        for (int i = 0; i < 4; ++i) {
+        for(int i = 0; i < 4; ++i){
             // Cek kolom
             if (papan[i] == papan[i + 4] && papan[i + 4] == papan[i + 8] && papan[i + 8] == papan[i + 12])
                 return papan[i];
@@ -330,12 +330,12 @@ char menang(int tingkat){
             return '/';
         } */
         char p = '/';
-        for (int i = 0; i < 25; i += 5) {
+        for(int i = 0; i < 25; i += 5){
             // Cek baris
             if (papan[i] == papan[i + 1] && papan[i + 1] == papan[i + 2] && papan[i + 2] == papan[i + 3] && papan[i + 3] == papan[i + 4])
                 return papan[i];
         }
-        for (int i = 0; i < 5; ++i) {
+        for(int i = 0; i < 5; ++i){
             // Cek kolom
             if (papan[i] == papan[i + 5] && papan[i + 5] == papan[i + 10] && papan[i + 10] == papan[i + 15] && papan[i + 15] == papan[i + 20])
                 return papan[i];
@@ -363,15 +363,15 @@ void cekSkor(){
         int skorP2Temp = skorP2;
         int skorKomputerTemp = skorKom;
 
-        if (skorP1Temp < skorP2Temp) {
+        if (skorP1Temp < skorP2Temp){
             swap(skorP1Temp, skorP2Temp);
             swap(pemain1, pemain2);
         }
-        if (skorP1Temp < skorKomputerTemp) {
+        if (skorP1Temp < skorKomputerTemp){
             swap(skorP1Temp, skorKomputerTemp);
             swap(pemain1, komputer);
         }
-        if (skorP2Temp < skorKomputerTemp) {
+        if (skorP2Temp < skorKomputerTemp){
             swap(skorP2Temp, skorKomputerTemp);
             swap(pemain2, komputer);
         }
@@ -453,20 +453,19 @@ int main(){
                         if(menang(tingkat) == 'X'){
                             cout << "Player X menang" << endl;
                             skorP1++;
-                            skorInGame(mode);
-                            break;
+                            break;;
                         } else if(menang(tingkat) == 'O'){
                             cout << "Player O menang" << endl;
-                            skorP2++;
-                            skorInGame(mode);
-                            break;
+                            skorKom++;
+                            break;;
                         } else if(menang(tingkat) == '/' && n == 9){
                             cout << "Hasil Seri" << endl;
-                            skorInGame(mode);
-                            break;
+                            break;;
                         }
                         gantiPemain();
                     } 
+                    cetakPapan(tingkat);
+                    skorInGame(mode);
                 } else if(mode==2){
                     system("cls");
                     int n=0;
@@ -480,20 +479,19 @@ int main(){
                         if(menang(tingkat) == 'X'){
                             cout << "Player X menang" << endl;
                             skorP1++;
-                            skorInGame(mode);
                             break;
                         } else if(menang(tingkat) == 'O'){
                             cout << "Player O menang" << endl;
                             skorP2++;
-                            skorInGame(mode);
                             break;
                         } else if(menang(tingkat) == '/' && n == 9){
                             cout << "Hasil Seri" << endl;
-                            skorInGame(mode);
                             break;
                         }
                         gantiPemain();
-                    }
+                    } 
+                    cetakPapan(tingkat);
+                    skorInGame(mode);
                 } else if(mode==3){
                     break;
                 } else{
