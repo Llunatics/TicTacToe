@@ -1,7 +1,6 @@
 # TicTacToe
 
 ## Kelompok 2
-Kelompok 2
 Nama:
 - Gathan Rafii Manaf           (NIM = 3337220117)
 - Andiko Ramadani              (NIM : 3337230003)
