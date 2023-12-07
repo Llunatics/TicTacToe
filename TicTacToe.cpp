@@ -375,8 +375,8 @@ char menang(int tingkat){
 void cekSkor(){
     system ("cls");
     char kembali;
-    cout << "\n=====================Menu Skor====================" << endl;
     do{
+        cout << "\n=====================Menu Skor====================" << endl;
         string pemain1 = namaP1 + " (Pemain 1)";
         string pemain2 = namaP2 + " (Pemain 2)";
         string komputer = "Komputer";
@@ -405,6 +405,7 @@ void cekSkor(){
 
         cout << "Ketik 'y' untuk kembali: \n";
         cin >> kembali;
+        system("cls");
 
         if(kembali == 'y' || kembali == 'Y'){
             break;
@@ -418,6 +419,7 @@ void resetSkor(){
     char reset;
     cout << "Apakah anda yakin ingin mereset skor? (y/n)";
     cin >> reset;
+    system("cls");
 
     if(reset == 'y'|| reset == 'Y'){
         skorP1 = 0;
@@ -438,7 +440,7 @@ int main(){
     cout << "\nKelompok 2\nNama : \t-Gathan Rafii Manaf\t\t(NIM = 3337220117)" << endl;
     cout << "\t-Andiko Ramadani\t\t(NIM : 3337230003)\n\t-Fadly Difak Al Fatah\t\t(NIM = 3337230004)" << endl;
     cout << "\t-Royhan Muhammad Al Biruni\t(NIM = 3337230021)\n\t-Ananta Pramudya Alfaritz\t(NIM : 3337230035)" << endl;
-    cout << "\t-Ariqoh Nur Azza \t\t(NIM = 3337230096)\nProdi:  Informatika (C)\nMata Kuliah : Dasar-dasar Pemrograman" << endl;
+    cout << "\t-Ariqoh Nur Azza \t\t(NIM = 3337230096)\nProdi:  Informatika (C)\nMata Kuliah : Dasar-dasar Pemrograman\n" << endl;
     
     do{
         cout << "====================TIC TAC TOE====================" << endl;
@@ -447,7 +449,7 @@ int main(){
         cout << "[2] Lihat Skor" << endl;
         cout << "[3] Reset Skor" << endl;
         cout << "[4] Keluar Program" << endl;
-        cout << "Silahkan Pilih Menu : "; 
+        cout << "Silahkan Pilih Menu (1/2/3/4/5): "; 
         cin >> menu;
 
         if(menu == 1){
