@@ -13,9 +13,9 @@ char player = 'X';
 int pilKom(int tingkat){
     int pilihan;
     do{
-        if(tingkat==1){
+        if(tingkat == 3){
             pilihan = rand()%9;
-        } else if(tingkat==2){
+        } else if(tingkat == 4){
             pilihan = rand()%16;
         } else{
             pilihan = rand()%25;
@@ -33,11 +33,11 @@ int tingkatPermainan(){
     system("cls");
     int tingkat;
     cout << "\n================Tingkatan Permainan===============" << endl;
-    cout << "[1] 3x3\n[2] 4x4\n[3] 5x5" << endl;
-    cout << "Silahkan pilih tingkatan permainan(1/2/3) : "; 
+    cout << "[3] 3x3\n[4] 4x4\n[5] 5x5" << endl;
+    cout << "Silahkan pilih tingkatan permainan(3/4/5) : "; 
     cin >> tingkat;
 
-    if (tingkat == 1 || tingkat == 2 || tingkat == 3){
+    if (tingkat == 3 || tingkat == 4 || tingkat == 5){
         return tingkat;
     }
     else {
@@ -48,7 +48,7 @@ int tingkatPermainan(){
 
 void cetakPapan(int tingkat){
     //system("cls");
-    if(tingkat==1){
+    if(tingkat == 3){
         /*cout << "-------------" << endl;
         for(int i = 0; i < 9; i += 3){
             cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " |" << endl;
@@ -69,7 +69,7 @@ void cetakPapan(int tingkat){
                 cout << "     |     |     " << endl;
             }
         }
-    } else if(tingkat==2){
+    } else if(tingkat == 4){
         /*cout << "-----------------" << endl;
         for(int i = 0; i < 16; i += 4){
             cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " | " << papan[i + 3] << " |" << endl;
@@ -90,7 +90,7 @@ void cetakPapan(int tingkat){
                 cout << "       |       |       |       " << endl;
             }
         }
-    } else if(tingkat==3){
+    } else if(tingkat == 5){
         /*cout << "---------------------" << endl;
         for(int i = 0; i < 25; i += 5){
             cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " | " << papan[i + 3] << " | " << papan[i + 4] << " |" << endl;
@@ -116,7 +116,7 @@ void cetakPapan(int tingkat){
 
 void aturNama(int mode){
     system("cls");
-    if(mode==1){
+    if(mode == 1){
         cout << "\n==============Mode Pemain VS Komputer=============" << endl;
         cout << "Masukkan nama pemain: ";
         cin >> namaP1;
@@ -167,11 +167,11 @@ void gantiPemain(){
 }
 
 void skorInGame(int mode){
-    if(mode==1){
+    if(mode == 1){
         cout << "\nSkor Saat Ini: " << endl;
         cout << "Skor " << namaP1 << ": " << skorP1 << endl;
         cout << "Skor Komputer: " << skorKom << endl;
-    } else if(mode==2){
+    } else if(mode == 2){
         cout << "\nSkor Saat Ini: " << endl;
         cout << "Skor " << namaP1 << ": " << skorP1 << endl;
         cout << "Skor " << namaP2 << ": " << skorP2 << endl;
@@ -180,7 +180,7 @@ void skorInGame(int mode){
 }
 
 char menang(int tingkat){
-    if(tingkat==1){
+    if(tingkat == 3){
         /*if(papan[0] == 'X' && papan[1] == 'X' && papan[2] == 'X'){
             return 'X';
         } else if(papan[3] == 'X' && papan[4] == 'X' && papan[5] == 'X'){
@@ -234,7 +234,7 @@ char menang(int tingkat){
             (papan[2] == papan[4] && papan[4] == papan[6]))
             return papan[4];
         return p;
-    } else if(tingkat==2){
+    } else if(tingkat == 4){
         /*if(papan[0] == 'X' && papan[1] == 'X' && papan[2] == 'X' && papan[3] == 'X'){
             return 'X';
         } else if(papan[4] == 'X' && papan[5] == 'X' && papan[6] == 'X' && papan[7] == 'X'){
@@ -297,7 +297,7 @@ char menang(int tingkat){
             return papan[5];
         return p;
 
-    } else if(tingkat==3){
+    } else if(tingkat == 5){
         /*if(papan[0] == 'X' && papan[1] == 'X' && papan[2] == 'X' && papan[3] == 'X' && papan[4] == 'X'){
             return 'X';
         } else if(papan[5] == 'X' && papan[6] == 'X' && papan[7] == 'X' && papan[8] == 'X' && papan[9] == 'X'){
@@ -406,7 +406,7 @@ void cekSkor(){
         cout << "Ketik 'y' untuk kembali: \n";
         cin >> kembali;
 
-        if(kembali=='y' || kembali=='Y'){
+        if(kembali == 'y' || kembali == 'Y'){
             break;
         }
     }while(true);
@@ -450,7 +450,7 @@ int main(){
         cout << "Silahkan Pilih Menu : "; 
         cin >> menu;
 
-        if(menu==1){
+        if(menu == 1){
             system("cls");
             int mode;
             do{
@@ -462,7 +462,7 @@ int main(){
                 cout << "Masukkan pilihan (1/2/3): "; 
                 cin >> mode;
             
-                if(mode==1){
+                if(mode == 1){
                     system("cls");
                     int n=0;
                     aturNama(mode);
@@ -481,7 +481,7 @@ int main(){
                             cout << "Komputer(O) menang" << endl;
                             skorKom++;
                             break;;
-                        } else if(menang(tingkat) == '/' && n == 9){
+                        } else if(menang(tingkat) == '/' && n == tingkat*tingkat){
                             cout << "Hasil Seri" << endl;
                             break;;
                         }
@@ -489,7 +489,7 @@ int main(){
                     } 
                     cetakPapan(tingkat);
                     skorInGame(mode);
-                } else if(mode==2){
+                } else if(mode == 2){
                     system("cls");
                     int n=0;
                     aturNama(mode);
@@ -516,17 +516,17 @@ int main(){
                     } 
                     cetakPapan(tingkat);
                     skorInGame(mode);
-                } else if(mode==3){
+                } else if(mode == 3){
                     break;
                 } else{
                     cout << "Mode yang anda pilih tidak valid." << endl;
                 }
             }while(mode!=3);
-        } else if(menu==2){
+        } else if(menu == 2){
             cekSkor();
-        } else if(menu==3){
+        } else if(menu == 3){
             resetSkor();
-        } else if(menu==4){
+        } else if(menu == 4){
             return 0;
         } else{
             cout << "Menu yang anda pilih tidak valid." << endl;
