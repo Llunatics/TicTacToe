@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 int skorP1=0, skorP2=0, skorKom=0;
@@ -9,6 +10,13 @@ char papan[25] =    {'1','2','3','4','5',
                     'G','H','I','J','K',
                     'L','M','N','O','P'};
 char player = 'X';
+int pilKom(){
+    int pilihan;
+    do{
+        pilihan = rand()%25;
+    } while(papan[pilihan] == 'X' || papan[pilihan] == 'O');
+    return pilihan+1;
+}
 
 void ulangPapan(){
     for(int i = 0; i < 25; ++i){
@@ -115,20 +123,28 @@ void aturNama(int mode){
     }
 }
 
-void input(int tingkat){
+void input(int tingkat, int mode){
     int a;
+
+    if(mode == 1 && player == 'O'){
+        a = pilKom();
+        cout << "Giliran " << ((player == 'X') ? namaP1 : "Komputer") << " (" << player << "), memilih kotak " << a << endl;
+    } else{
+        cout << "Giliran " << ((player == 'X') ? namaP1 : namaP2) << " (" << player << "), masukkan pilihan nomor kotak : "; 
+        cin >> a;
+    }
+
     string salah = "Kotak sudah digunakan, pilih yang lain";
-    cout << "Giliran " << ((player == 'X') ? namaP1 : namaP2) << " (" << player << "), masukkan pilihan nomor kotak : "; cin >> a;
 
     if(a < 1 || a > 25){
         cout << "Input diluar rentang yang valid." << endl;
-        input(tingkat);
+        input(tingkat, mode);
         return;
     }
 
     if(papan[a - 1] == 'X' || papan[a - 1] == 'O'){
         cout << salah << endl;
-        input(tingkat);
+        input(tingkat, mode);
         return;
     }
 
@@ -449,7 +465,7 @@ int main(){
                     while(1){
                         n++;
                         cetakPapan(tingkat);
-                        input(tingkat);
+                        input(tingkat, mode);
                         if(menang(tingkat) == 'X'){
                             cout << "Player X menang" << endl;
                             skorP1++;
@@ -475,7 +491,7 @@ int main(){
                     while(1){
                         n++;
                         cetakPapan(tingkat);
-                        input(tingkat);
+                        input(tingkat, mode);
                         if(menang(tingkat) == 'X'){
                             cout << "Player X menang" << endl;
                             skorP1++;
