@@ -10,10 +10,16 @@ char papan[25] =    {'1','2','3','4','5',
                     'G','H','I','J','K',
                     'L','M','N','O','P'};
 char player = 'X';
-int pilKom(){
+int pilKom(int tingkat){
     int pilihan;
     do{
-        pilihan = rand()%25;
+        if(tingkat==1){
+            pilihan = rand()%9;
+        } else if(tingkat==2){
+            pilihan = rand()%16;
+        } else{
+            pilihan = rand()%25;
+        }
     } while(papan[pilihan] == 'X' || papan[pilihan] == 'O');
     return pilihan+1;
 }
@@ -41,7 +47,7 @@ int tingkatPermainan(){
 }
 
 void cetakPapan(int tingkat){
-    system("cls");
+    //system("cls");
     if(tingkat==1){
         /*cout << "-------------" << endl;
         for(int i = 0; i < 9; i += 3){
@@ -127,7 +133,7 @@ void input(int tingkat, int mode){
     int a;
 
     if(mode == 1 && player == 'O'){
-        a = pilKom();
+        a = pilKom(tingkat);
         cout << "Giliran " << ((player == 'X') ? namaP1 : "Komputer") << " (" << player << "), memilih kotak " << a << endl;
     } else{
         cout << "Giliran " << ((player == 'X') ? namaP1 : namaP2) << " (" << player << "), masukkan pilihan nomor kotak : "; 
@@ -463,15 +469,16 @@ int main(){
                     int tingkat = tingkatPermainan();
                     ulangPapan();
                     while(1){
+                        system("cls");
                         n++;
                         cetakPapan(tingkat);
                         input(tingkat, mode);
                         if(menang(tingkat) == 'X'){
-                            cout << "Player X menang" << endl;
+                            cout << namaP1 << "(X) menang" << endl;
                             skorP1++;
                             break;;
                         } else if(menang(tingkat) == 'O'){
-                            cout << "Player O menang" << endl;
+                            cout << "Komputer(O) menang" << endl;
                             skorKom++;
                             break;;
                         } else if(menang(tingkat) == '/' && n == 9){
@@ -489,6 +496,7 @@ int main(){
                     int tingkat = tingkatPermainan();
                     ulangPapan();
                     while(1){
+                        system("cls");
                         n++;
                         cetakPapan(tingkat);
                         input(tingkat, mode);
@@ -500,7 +508,7 @@ int main(){
                             cout << "Player O menang" << endl;
                             skorP2++;
                             break;
-                        } else if(menang(tingkat) == '/' && n == 9){
+                        } else if(menang(tingkat) == '/' && n == tingkat*tingkat){
                             cout << "Hasil Seri" << endl;
                             break;
                         }
