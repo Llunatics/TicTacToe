@@ -4,11 +4,11 @@ using namespace std;
 
 int skorP1=0, skorP2=0, skorKom=0;
 string namaP1="", namaP2="";
-char papan[25] =    {'1','2','3','4','5',
+char papan[25];    /*{'1','2','3','4','5',
                     '6','7','8','9','A',
                     'B','C','D','E','F',
                     'G','H','I','J','K',
-                    'L','M','N','O','P'};
+                    'L','M','N','O','P'};*/
 char player = 'X';
 int pilKom(int tingkat){
     int pilihan;
@@ -26,7 +26,7 @@ int pilKom(int tingkat){
 
 void ulangPapan(){
     for(int i = 0; i < 25; ++i){
-        papan[i] = '1' + i;
+        papan[i] = ' ';
     }
 }
 int tingkatPermainan(){
