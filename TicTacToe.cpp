@@ -4,11 +4,7 @@ using namespace std;
 
 int skorP1=0, skorP2=0, skorKom=0;
 string namaP1="", namaP2="";
-char papan[25];    /*{'1','2','3','4','5',
-                    '6','7','8','9','A',
-                    'B','C','D','E','F',
-                    'G','H','I','J','K',
-                    'L','M','N','O','P'};*/
+char papan[25];
 char player = 'X';
 
 int pilKom(int tingkat){
