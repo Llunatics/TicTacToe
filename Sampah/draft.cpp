@@ -10,7 +10,6 @@ char papan[25];    /*{'1','2','3','4','5',
                     'G','H','I','J','K',
                     'L','M','N','O','P'};*/
 char player = 'X';
-
 int pilKom(int tingkat){
     int pilihan;
     do{
@@ -48,7 +47,13 @@ int tingkatPermainan(){
 }
 
 void cetakPapan(int tingkat){
+    //system("cls");
     if(tingkat == 3){
+        /*cout << "-------------" << endl;
+        for(int i = 0; i < 9; i += 3){
+            cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " |" << endl;
+            cout << "-------------" << endl;
+        }*/
         for(int i = 0; i < 3; ++i){
             cout << "     |     |     " << endl;
             for(int j = 0; j < 3; ++j){
@@ -65,6 +70,11 @@ void cetakPapan(int tingkat){
             }
         }
     } else if(tingkat == 4){
+        /*cout << "-----------------" << endl;
+        for(int i = 0; i < 16; i += 4){
+            cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " | " << papan[i + 3] << " |" << endl;
+            cout << "-----------------" << endl;
+        }*/
         for(int i = 0; i < 4; ++i){
             cout << "       |       |       |       " << endl;
             for(int j = 0; j < 4; ++j){
@@ -81,6 +91,11 @@ void cetakPapan(int tingkat){
             }
         }
     } else if(tingkat == 5){
+        /*cout << "---------------------" << endl;
+        for(int i = 0; i < 25; i += 5){
+            cout << "| " << papan[i] << " | " << papan[i + 1] << " | " << papan[i + 2] << " | " << papan[i + 3] << " | " << papan[i + 4] << " |" << endl;
+            cout << "---------------------" << endl;
+        }*/
         for(int i = 0; i < 5; ++i){
             cout << "         |         |         |         |         " << endl;
             for(int j = 0; j < 5; ++j){
@@ -138,6 +153,7 @@ void input(int tingkat, int mode){
         input(tingkat, mode);
         return;
     }
+
     papan[a - 1] = player;
 }
 
@@ -165,6 +181,43 @@ void skorInGame(int mode){
 
 char menang(int tingkat){
     if(tingkat == 3){
+        /*if(papan[0] == 'X' && papan[1] == 'X' && papan[2] == 'X'){
+            return 'X';
+        } else if(papan[3] == 'X' && papan[4] == 'X' && papan[5] == 'X'){
+            return 'X';
+        } else if(papan[6] == 'X' && papan[7] == 'X' && papan[8] == 'X'){
+            return 'X';
+        } else if(papan[0] == 'X' && papan[3] == 'X' && papan[6] == 'X'){
+            return 'X';
+        } else if(papan[1] == 'X' && papan[4] == 'X' && papan[7] == 'X'){
+            return 'X';
+        } else if(papan[2] == 'X' && papan[5] == 'X' && papan[8] == 'X'){
+            return 'X';
+        } else if(papan[0] == 'X' && papan[4] == 'X' && papan[8] == 'X'){
+            return 'X';
+        } else if(papan[2] == 'X' && papan[4] == 'X' && papan[6] == 'X'){
+            return 'X';
+        }
+
+        if(papan[0] == 'O' && papan[1] == 'O' && papan[2] == 'O'){
+            return 'O';
+        } else if(papan[3] == 'O' && papan[4] == 'O' && papan[5] == 'O'){
+            return 'O';
+        } else if(papan[6] == 'O' && papan[7] == 'O' && papan[8] == 'O'){
+            return 'O';
+        } else if(papan[0] == 'O' && papan[3] == 'O' && papan[6] == 'O'){
+            return 'O';
+        } else if(papan[1] == 'O' && papan[4] == 'O' && papan[7] == 'O'){
+            return 'O';
+        } else if(papan[2] == 'O' && papan[5] == 'O' && papan[8] == 'O'){
+            return 'O';
+        } else if(papan[0] == 'O' && papan[4] == 'O' && papan[8] == 'O'){
+            return 'O';
+        } else if(papan[2] == 'O' && papan[4] == 'O' && papan[6] == 'O'){
+            return 'O';
+        } else{
+            return '/';
+        } */
         char p = '/';
         for(int i = 0; i < 9; i += 3){
             // Cek baris
@@ -182,6 +235,51 @@ char menang(int tingkat){
             return papan[4];
         return p;
     } else if(tingkat == 4){
+        /*if(papan[0] == 'X' && papan[1] == 'X' && papan[2] == 'X' && papan[3] == 'X'){
+            return 'X';
+        } else if(papan[4] == 'X' && papan[5] == 'X' && papan[6] == 'X' && papan[7] == 'X'){
+            return 'X';
+        } else if(papan[8] == 'X' && papan[9] == 'X' && papan[10] == 'X' && papan[11] == 'X'){
+            return 'X';
+        } else if(papan[12] == 'X' && papan[13] == 'X' && papan[14] == 'X' && papan[15] == 'X'){
+            return 'X';
+        } else if(papan[0] == 'X' && papan[4] == 'X' && papan[8] == 'X' && papan[12] == 'X'){
+            return 'X';
+        } else if(papan[1] == 'X' && papan[5] == 'X' && papan[9] == 'X' && papan[13] == 'X'){
+            return 'X';
+        } else if(papan[2] == 'X' && papan[6] == 'X' && papan[10] == 'X' && papan[14] == 'X'){
+            return 'X';
+        } else if(papan[3] == 'X' && papan[7] == 'X' && papan[11] == 'X' && papan[15] == 'X'){
+            return 'X';
+        } else if(papan[0] == 'X' && papan[5] == 'X' && papan[10] == 'X' && papan[15] == 'X'){
+            return 'X';
+        } else if(papan[3] == 'X' && papan[6] == 'X' && papan[9] == 'X' && papan[12] == 'X'){
+            return 'X';
+        } 
+
+        if(papan[0] == 'O' && papan[1] == 'O' && papan[2] == 'O' && papan[3] == 'O'){
+            return 'O';
+        } else if(papan[4] == 'O' && papan[5] == 'O' && papan[6] == 'O' && papan[7] == 'O'){
+            return 'O';
+        } else if(papan[8] == 'O' && papan[9] == 'O' && papan[10] == 'O' && papan[11] == 'O'){
+            return 'O';
+        } else if(papan[12] == 'O' && papan[13] == 'O' && papan[14] == 'O' && papan[15] == 'O'){
+            return 'O';
+        } else if(papan[0] == 'O' && papan[4] == 'O' && papan[8] == 'O' && papan[12] == 'O'){
+            return 'O';
+        } else if(papan[1] == 'O' && papan[5] == 'O' && papan[9] == 'O' && papan[13] == 'O'){
+            return 'O';
+        } else if(papan[2] == 'O' && papan[6] == 'O' && papan[10] == 'O' && papan[14] == 'O'){
+            return 'O';
+        } else if(papan[3] == 'O' && papan[7] == 'O' && papan[11] == 'O' && papan[15] == 'O'){
+            return 'O';
+        } else if(papan[0] == 'O' && papan[5] == 'O' && papan[10] == 'O' && papan[15] == 'O'){
+            return 'O';
+        } else if(papan[3] == 'O' && papan[6] == 'O' && papan[9] == 'O' && papan[12] == 'O'){
+            return 'O';
+        } else{
+            return '/';
+        } */
         char p = '/';
         for(int i = 0; i < 16; i += 4){
             // Cek baris
@@ -200,6 +298,59 @@ char menang(int tingkat){
         return p;
 
     } else if(tingkat == 5){
+        /*if(papan[0] == 'X' && papan[1] == 'X' && papan[2] == 'X' && papan[3] == 'X' && papan[4] == 'X'){
+            return 'X';
+        } else if(papan[5] == 'X' && papan[6] == 'X' && papan[7] == 'X' && papan[8] == 'X' && papan[9] == 'X'){
+            return 'X';
+        } else if(papan[10] == 'X' && papan[11] == 'X' && papan[12] == 'X' && papan[13] == 'X' && papan[14] == 'X'){
+            return 'X';
+        } else if(papan[15] == 'X' && papan[16] == 'X' && papan[17] == 'X' && papan[18] == 'X' && papan[19] == 'X'){
+            return 'X';
+        } else if(papan[20] == 'X' && papan[21] == 'X' && papan[22] == 'X' && papan[23] == 'X' && papan[24] == 'X'){
+            return 'X';
+        } else if(papan[0] == 'X' && papan[5] == 'X' && papan[10] == 'X' && papan[15] == 'X' && papan[20] == 'X'){
+            return 'X';
+        } else if(papan[1] == 'X' && papan[6] == 'X' && papan[11] == 'X' && papan[16] == 'X' && papan[21] == 'X'){
+            return 'X';
+        } else if(papan[2] == 'X' && papan[7] == 'X' && papan[12] == 'X' && papan[17] == 'X' && papan[22] == 'X'){
+            return 'X';
+        } else if(papan[3] == 'X' && papan[8] == 'X' && papan[13] == 'X' && papan[18] == 'X' && papan[23] == 'X'){
+            return 'X';
+        } else if(papan[4] == 'X' && papan[9] == 'X' && papan[14] == 'X' && papan[19] == 'X' && papan[24] == 'X'){
+            return 'X';
+        } else if(papan[0] == 'X' && papan[6] == 'X' && papan[12] == 'X' && papan[18] == 'X' && papan[24] == 'X'){
+            return 'X';
+        } else if(papan[4] == 'X' && papan[8] == 'X' && papan[12] == 'X' && papan[16] == 'X' && papan[20] == 'X'){
+            return 'X';
+        } 
+
+        if(papan[0] == 'O' && papan[1] == 'O' && papan[2] == 'O' && papan[3] == 'O' && papan[4] == 'O'){
+            return 'O';
+        } else if(papan[5] == 'O' && papan[6] == 'O' && papan[7] == 'O' && papan[8] == 'O' && papan[9] == 'O'){
+            return 'O';
+        } else if(papan[10] == 'O' && papan[11] == 'O' && papan[12] == 'O' && papan[13] == 'O' && papan[14] == 'O'){
+            return 'O';
+        } else if(papan[15] == 'O' && papan[16] == 'O' && papan[17] == 'O' && papan[18] == 'O' && papan[19] == 'O'){
+            return 'O';
+        } else if(papan[20] == 'O' && papan[21] == 'O' && papan[22] == 'O' && papan[23] == 'O' && papan[24] == 'O'){
+            return 'O';
+        } else if(papan[0] == 'O' && papan[5] == 'O' && papan[10] == 'O' && papan[15] == 'O' && papan[20] == 'O'){
+            return 'O';
+        } else if(papan[1] == 'O' && papan[6] == 'O' && papan[11] == 'O' && papan[16] == 'O' && papan[21] == 'O'){
+            return 'O';
+        } else if(papan[2] == 'O' && papan[7] == 'O' && papan[12] == 'O' && papan[17] == 'O' && papan[22] == 'O'){
+            return 'O';
+        } else if(papan[3] == 'O' && papan[8] == 'O' && papan[13] == 'O' && papan[18] == 'O' && papan[23] == 'O'){
+            return 'O';
+        } else if(papan[4] == 'O' && papan[9] == 'O' && papan[14] == 'O' && papan[19] == 'O' && papan[24] == 'O'){
+            return 'O';
+        } else if(papan[0] == 'O' && papan[6] == 'O' && papan[12] == 'O' && papan[18] == 'O' && papan[24] == 'O'){
+            return 'O';
+        } else if(papan[4] == 'O' && papan[8] == 'O' && papan[12] == 'O' && papan[16] == 'O' && papan[20] == 'O'){
+            return 'O';
+        } else{
+            return '/';
+        } */
         char p = '/';
         for(int i = 0; i < 25; i += 5){
             // Cek baris
@@ -286,11 +437,10 @@ void resetSkor(){
 int main(){
     system("cls");
     int menu;
-    cout << "====================KELOMPOK 2====================" << endl;
-    cout << "\nNama : \t-Gathan Rafii Manaf\t\t(NIM = 3337220117)" << endl;
+    cout << "\nKelompok 2\nNama : \t-Gathan Rafii Manaf\t\t(NIM = 3337220117)" << endl;
     cout << "\t-Andiko Ramadani\t\t(NIM : 3337230003)\n\t-Fadly Difak Al Fatah\t\t(NIM = 3337230004)" << endl;
     cout << "\t-Royhan Muhammad Al Biruni\t(NIM = 3337230021)\n\t-Ananta Pramudya Alfaritz\t(NIM : 3337230035)" << endl;
-    cout << "\t-Ariqoh Nur Azza \t\t(NIM = 3337230096)\n\nProdi:  Informatika (C)\nMata Kuliah : Dasar-dasar Pemrograman\n" << endl;
+    cout << "\t-Ariqoh Nur Azza \t\t(NIM = 3337230096)\nProdi:  Informatika (C)\nMata Kuliah : Dasar-dasar Pemrograman\n" << endl;
     
     do{
         cout << "====================TIC TAC TOE====================" << endl;
@@ -379,7 +529,6 @@ int main(){
         } else if(menu == 3){
             resetSkor();
         } else if(menu == 4){
-            cout << "\nPermainan selesai, program telah diakhiri" << endl;
             return 0;
         } else{
             cout << "Menu yang anda pilih tidak valid." << endl;
