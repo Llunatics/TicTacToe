@@ -26,6 +26,7 @@ void ulangPapan(){
         papan[i] = ' ';
     }
 }
+
 int tingkatPermainan(){
     system("cls");
     int tingkat;
@@ -36,8 +37,7 @@ int tingkatPermainan(){
 
     if (tingkat == 3 || tingkat == 4 || tingkat == 5){
         return tingkat;
-    }
-    else {
+    } else {
         cout << "Maaf, input salah. Silahkan ulangi." << endl;
         return tingkatPermainan();
     }
@@ -53,8 +53,7 @@ void cetakPapan(int tingkat){
                 } else{
                     cout << "  " << papan[(i * 3) + j] << "  " << endl;
                 }
-            }
-            if(i != 2){
+            } if(i != 2){
                 cout << "_____|_____|_____" << endl;
             } else{
                 cout << "     |     |     " << endl;
@@ -69,8 +68,7 @@ void cetakPapan(int tingkat){
                 } else{
                     cout << "   " << papan[(i * 4) + j] << "   " << endl;
                 }
-            }
-            if(i != 3){
+            } if(i != 3){
                 cout << "_______|_______|_______|_______" << endl;
             } else{
                 cout << "       |       |       |       " << endl;
@@ -85,8 +83,7 @@ void cetakPapan(int tingkat){
                 } else{
                     cout << "    " << papan[(i * 5) + j] << "    " << endl;
                 }
-            }
-            if(i != 4){
+            } if(i != 4){
                 cout << "_________|_________|_________|_________|_________" << endl;
             } else{
                 cout << "         |         |         |         |         " << endl;
@@ -99,19 +96,20 @@ void aturNama(int mode){
     system("cls");
     if(mode == 1){
         cout << "\n==============Mode Pemain VS Komputer=============" << endl;
-        cout << "Masukkan nama pemain: ";
+        cout << "Masukkan nama pemain : ";
         cin >> namaP1;
     } else if(mode==2){
         cout << "\n=============Mode Pemain 1 VS Pemain 2============" << endl;
-        cout << "Masukkan nama pemain 1: ";
+        cout << "Masukkan nama pemain 1 : ";
         cin >> namaP1;
-        cout << "Masukkan nama pemain 2: ";
+        cout << "Masukkan nama pemain 2 : ";
         cin >> namaP2;
     }
 }
 
 void input(int tingkat, int mode){
     int a;
+    string salah = "Kotak sudah digunakan, pilih yang lain";
 
     if(mode == 1 && player == 'O'){
         a = pilKom(tingkat);
@@ -121,14 +119,11 @@ void input(int tingkat, int mode){
         cin >> a;
     }
 
-    string salah = "Kotak sudah digunakan, pilih yang lain";
-
     if(a < 1 || a > 25){
         cout << "Input diluar rentang yang valid." << endl;
         input(tingkat, mode);
         return;
     }
-
     if(papan[a - 1] == 'X' || papan[a - 1] == 'O'){
         cout << salah << endl;
         input(tingkat, mode);
@@ -136,7 +131,6 @@ void input(int tingkat, int mode){
     }
     papan[a - 1] = player;
 }
-
 
 void gantiPemain(){
     if(player == 'X'){
@@ -148,13 +142,13 @@ void gantiPemain(){
 
 void skorInGame(int mode){
     if(mode == 1){
-        cout << "\nSkor Saat Ini: " << endl;
-        cout << "Skor " << namaP1 << ": " << skorP1 << endl;
-        cout << "Skor Komputer: " << skorKom << endl;
+        cout << "\nSkor Saat Ini : " << endl;
+        cout << "--Skor " << namaP1 << " : " << skorP1 << endl;
+        cout << "--Skor Komputer : " << skorKom << endl;
     } else if(mode == 2){
-        cout << "\nSkor Saat Ini: " << endl;
-        cout << "Skor " << namaP1 << ": " << skorP1 << endl;
-        cout << "Skor " << namaP2 << ": " << skorP2 << endl;
+        cout << "\nSkor Saat Ini : " << endl;
+        cout << "--Skor " << namaP1 << " : " << skorP1 << endl;
+        cout << "--Skor " << namaP2 << " : " << skorP2 << endl;
     }
     
 }
@@ -248,14 +242,14 @@ void cekSkor(){
         cout << "2. " << pemain2 << " : " << skorP2Temp << endl;
         cout << "3. " << komputer << " : " << skorKomputerTemp << endl;
 
-        cout << "Ketik 'y' untuk kembali: \n";
+        cout << "Ketik 'y' untuk kembali : \n";
         cin >> kembali;
         system("cls");
 
         if(kembali == 'y' || kembali == 'Y'){
             break;
         }
-    }while(true);
+    } while(true);
 }
 
 void resetSkor(){
@@ -272,9 +266,7 @@ void resetSkor(){
         skorKom = 0;
 
         cout << "Skor telah direset.\n" << endl;
-    } 
-    
-    else{
+    } else{
         cout << "Skor batal direset.\n" << endl;
     }
 }
@@ -286,28 +278,29 @@ int main(){
     cout << "\nNama : \t-Gathan Rafii Manaf\t\t(NIM = 3337220117)" << endl;
     cout << "\t-Andiko Ramadani\t\t(NIM : 3337230003)\n\t-Fadly Difak Al Fatah\t\t(NIM = 3337230004)" << endl;
     cout << "\t-Royhan Muhammad Al Biruni\t(NIM = 3337230021)\n\t-Ananta Pramudya Alfaritz\t(NIM : 3337230035)" << endl;
-    cout << "\t-Ariqoh Nur Azza \t\t(NIM = 3337230096)\n\nProdi:  Informatika (C)\nMata Kuliah : Dasar-dasar Pemrograman\n" << endl;
+    cout << "\t-Ariqoh Nur Azza \t\t(NIM = 3337230096)\n\nProdi : Informatika (C)\nMata Kuliah : Dasar-dasar Pemrograman\n" << endl;
     
     do{
         cout << "====================TIC TAC TOE====================" << endl;
-        cout << "Selamat Datang di Game Tic Tac Toe\nDaftar Menu: " << endl;
+        cout << "Selamat Datang di Game Tic Tac Toe\nDaftar Menu : " << endl;
         cout << "[1] Mulai Permainan" << endl;
         cout << "[2] Lihat Skor" << endl;
         cout << "[3] Reset Skor" << endl;
         cout << "[4] Keluar Program" << endl;
-        cout << "Silahkan Pilih Menu (1/2/3/4/5): "; 
+        cout << "Silahkan Pilih Menu (1/2/3/4/5) : "; 
         cin >> menu;
 
         if(menu == 1){
             system("cls");
             int mode;
+            char lagi;
             do{
                 cout << "\n===============Daftar Mode Permainan==============" << endl;
-                cout << "Daftar Mode Permainan: " << endl;
+                cout << "Daftar Mode Permainan : " << endl;
                 cout << "1. Pemain 1 vs Komputer" << endl;
                 cout << "2. Pemain 1 vs Pemain 2" << endl;
                 cout << "3. Kembali ke Menu Utama" << endl;
-                cout << "Masukkan pilihan (1/2/3): "; 
+                cout << "Masukkan pilihan (1/2/3) : "; 
                 cin >> mode;
             
                 if(mode == 1){
@@ -332,11 +325,16 @@ int main(){
                         } else if(menang(tingkat) == '/' && n == tingkat*tingkat){
                             cout << "Hasil Seri" << endl;
                             break;;
-                        }
-                        gantiPemain();
+                        } gantiPemain();
                     } 
                     cetakPapan(tingkat);
                     skorInGame(mode);
+                    cout << "Ingin bermain lagi? (y/n) : ";
+                    cin >> lagi;
+                    system("cls");
+                    if(lagi == 'n' || lagi == 'N'){
+                        break;
+                    }
                 } else if(mode == 2){
                     system("cls");
                     int n=0;
@@ -359,17 +357,22 @@ int main(){
                         } else if(menang(tingkat) == '/' && n == tingkat*tingkat){
                             cout << "Hasil Seri" << endl;
                             break;
-                        }
-                        gantiPemain();
+                        } gantiPemain();
                     } 
                     cetakPapan(tingkat);
                     skorInGame(mode);
+                    cout << "Ingin bermain lagi? (y/n) : ";
+                    cin >> lagi;
+                    system("cls");
+                    if(lagi == 'n' || lagi == 'N'){
+                        break;
+                    }
                 } else if(mode == 3){
                     break;
                 } else{
                     cout << "Mode yang anda pilih tidak valid." << endl;
                 }
-            }while(mode!=3);
+            } while(mode!=3);
         } else if(menu == 2){
             cekSkor();
         } else if(menu == 3){
@@ -380,5 +383,5 @@ int main(){
         } else{
             cout << "Menu yang anda pilih tidak valid." << endl;
         }
-    }while(menu!=5);
+    } while(menu!=5);
 }
