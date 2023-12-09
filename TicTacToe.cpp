@@ -143,12 +143,12 @@ void gantiPemain(){
 void skorInGame(int mode){
     if(mode == 1){
         cout << "\nSkor Saat Ini : " << endl;
-        cout << "--Skor " << namaP1 << " : " << skorP1 << endl;
-        cout << "--Skor Komputer : " << skorKom << endl;
+        cout << "-Skor " << namaP1 << " : " << skorP1 << endl;
+        cout << "-Skor Komputer : " << skorKom << endl;
     } else if(mode == 2){
         cout << "\nSkor Saat Ini : " << endl;
-        cout << "--Skor " << namaP1 << " : " << skorP1 << endl;
-        cout << "--Skor " << namaP2 << " : " << skorP2 << endl;
+        cout << "-Skor " << namaP1 << " : " << skorP1 << endl;
+        cout << "-Skor " << namaP2 << " : " << skorP2 << endl;
     }
     
 }
@@ -297,9 +297,9 @@ int main(){
             do{
                 cout << "\n===============Daftar Mode Permainan==============" << endl;
                 cout << "Daftar Mode Permainan : " << endl;
-                cout << "1. Pemain 1 vs Komputer" << endl;
-                cout << "2. Pemain 1 vs Pemain 2" << endl;
-                cout << "3. Kembali ke Menu Utama" << endl;
+                cout << "[1] Pemain 1 vs Komputer" << endl;
+                cout << "[2] Pemain 1 vs Pemain 2" << endl;
+                cout << "[3] Kembali ke Menu Utama" << endl;
                 cout << "Masukkan pilihan (1/2/3) : "; 
                 cin >> mode;
             
